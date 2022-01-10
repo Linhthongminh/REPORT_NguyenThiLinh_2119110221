@@ -74,14 +74,19 @@ namespace LinhThongMinh.GUI
 
         private void btDelete_Click(object sender, EventArgs e)
         {
-            EmployeeDTO employee = new EmployeeDTO();
-            employee.ID_Employee = tbId.Text;
-            employee.Name = tbName.Text;
+            DialogResult dlr = MessageBox.Show("Are you sure to Delete?", "Nofication", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
+            {
+                EmployeeDTO employee = new EmployeeDTO();
+                employee.ID_Employee = tbId.Text;
+                employee.Name = tbName.Text;
 
-            employeeBAL.DeleteEmployee(employee);
+                employeeBAL.DeleteEmployee(employee);
 
-            int idx = dgvEmployee.CurrentCell.RowIndex;
-            dgvEmployee.Rows.RemoveAt(idx);
+                int idx = dgvEmployee.CurrentCell.RowIndex;
+                dgvEmployee.Rows.RemoveAt(idx);
+            }
+            
         }
 
         private void btEdit_Click(object sender, EventArgs e)
