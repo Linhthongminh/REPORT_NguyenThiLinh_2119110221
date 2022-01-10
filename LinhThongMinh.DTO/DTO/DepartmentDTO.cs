@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace LinhThongMinh.DTO.DTO
 {
-    class DepartmentDTO
+    public class DepartmentDTO
     {
+        public string Department_ID { get; set; }
+        public string Department_Name { get; set; }
+        public List<EmployeeDTO> employees { get; set; }
     }
 }
