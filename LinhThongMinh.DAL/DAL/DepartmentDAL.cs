@@ -33,7 +33,7 @@ namespace LinhThongMinh.DAL.DAL
         {
             SqlConnection conn = CreateConnection();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Department WHERE ID_Department = @id", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Department WHERE Department_ID = @id", conn);
             cmd.Parameters.AddWithValue("@id", id);
             SqlDataReader reader = cmd.ExecuteReader();
             DepartmentDTO department = new DepartmentDTO();
