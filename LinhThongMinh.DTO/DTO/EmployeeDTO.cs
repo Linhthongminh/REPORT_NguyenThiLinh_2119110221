@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace LinhThongMinh.DTO.DTO
 {
-    class EmployeeDTO
+    public class EmployeeDTO
     {
-        //a
+        public string Employee_ID { get; set; }
+        public string Employee_Name { get; set; }
+        public string DOB { get; set; }
+        public bool Gender { get; set; }
+        public string POB { get; set; }
+        public DepartmentDTO Department { get; set; }
+        public string Department_Name { get { return Department.Department_Name; } }
     }
 }
