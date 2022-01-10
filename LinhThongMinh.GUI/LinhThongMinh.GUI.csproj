@@ -79,5 +79,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LinhThongMinh.BAL\LinhThongMinh.BAL.csproj">
+      <Project>{BB5D4547-91BE-476E-B03A-9B1D1B8E96A5}</Project>
+      <Name>LinhThongMinh.BAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LinhThongMinh.DTO\LinhThongMinh.DTO.csproj">
+      <Project>{31C4F3EF-0BA4-48FA-8A59-50A9A0E42E8A}</Project>
+      <Name>LinhThongMinh.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

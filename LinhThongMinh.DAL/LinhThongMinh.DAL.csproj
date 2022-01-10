@@ -47,5 +47,11 @@
     <Compile Include="DAL\EmployeeDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LinhThongMinh.DTO\LinhThongMinh.DTO.csproj">
+      <Project>{31C4F3EF-0BA4-48FA-8A59-50A9A0E42E8A}</Project>
+      <Name>LinhThongMinh.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
