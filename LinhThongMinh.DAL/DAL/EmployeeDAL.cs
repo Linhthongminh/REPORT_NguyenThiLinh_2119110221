@@ -39,13 +39,13 @@ namespace LinhThongMinh.DAL.DAL
             SqlConnection conn = CreateConnection();
             try
             {
-                SqlCommand cmd = new SqlCommand("UPDATE Employee SET Employee_Name = @Employee_Name, DOB = @DOB, Gender = @Gender, POB = @POB, Department_ID = @Department_ID where Employee_ID = @Employee_ID", conn);
+                SqlCommand cmd = new SqlCommand("UPDATE Employee SET Employee_Name = @Employee_Name, DOB = @DOB, Gender = @Gender, POB = @POB, Department = @Department where Employee_ID = @Employee_ID", conn);
                 cmd.Parameters.Add(new SqlParameter("@Employee_ID", employee.Employee_ID));
                 cmd.Parameters.Add(new SqlParameter("@Employee_Name", employee.Employee_Name));
                 cmd.Parameters.Add(new SqlParameter("@DOB", employee.DOB));
                 cmd.Parameters.Add(new SqlParameter("@Gender", employee.Gender));
                 cmd.Parameters.Add(new SqlParameter("@POB", employee.POB));
-                cmd.Parameters.Add(new SqlParameter("@Department_ID", employee.Department.Department_ID));
+                cmd.Parameters.Add(new SqlParameter("@Department", employee.Department.Department_ID));
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
@@ -89,14 +89,14 @@ namespace LinhThongMinh.DAL.DAL
             SqlConnection conn = CreateConnection();
             try
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO Employee (Employee_ID, Employee_Name, DOB, Gender, POB, Department_ID) " +
-                    "VALUES(@Employee_ID, @Employee_Name, @DOB, @Gender, @POB, @Department_ID)", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Employee (Employee_ID, Employee_Name, DOB, Gender, POB, Department) " +
+                    "VALUES(@Employee_ID, @Employee_Name, @DOB, @Gender, @POB, @Department)", conn);
                 cmd.Parameters.Add(new SqlParameter("@Employee_ID", employee.Employee_ID));
                 cmd.Parameters.Add(new SqlParameter("@Employee_Name", employee.Employee_Name));
                 cmd.Parameters.Add(new SqlParameter("@DOB", employee.DOB));
                 cmd.Parameters.Add(new SqlParameter("@Gender", employee.Gender));
                 cmd.Parameters.Add(new SqlParameter("@POB", employee.POB));
-                cmd.Parameters.Add(new SqlParameter("@Department_ID", employee.Department.Department_ID));
+                cmd.Parameters.Add(new SqlParameter("@Department", employee.Department.Department_ID));
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
