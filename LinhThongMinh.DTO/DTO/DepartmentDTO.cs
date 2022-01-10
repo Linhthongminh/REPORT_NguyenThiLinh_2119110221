@@ -8,8 +8,8 @@ namespace LinhThongMinh.DTO.DTO
 {
     public class DepartmentDTO
     {
-        public string Department_ID { get; set; }
-        public string Department_Name { get; set; }
+        public string ID_Department { get; set; }
+        public string Name { get; set; }
         public List<EmployeeDTO> employees { get; set; }
     }
 }

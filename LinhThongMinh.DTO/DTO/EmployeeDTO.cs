@@ -8,12 +8,12 @@ namespace LinhThongMinh.DTO.DTO
 {
     public class EmployeeDTO
     {
-        public string Employee_ID { get; set; }
-        public string Employee_Name { get; set; }
-        public string DOB { get; set; }
+        public string ID_Employee { get; set; }
+        public string Name { get; set; }
+        public string DateBirth { get; set; }
         public bool Gender { get; set; }
-        public string POB { get; set; }
-        public DepartmentDTO Department { get; set; }
-        public string Department_Name { get { return Department.Department_Name; } }
+        public string PlaceBirth { get; set; }
+        public DepartmentDTO ID_Department { get; set; }
+        public string Name_Department { get { return ID_Department.Name; } }
     }
 }
