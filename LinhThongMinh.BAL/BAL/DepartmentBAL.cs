@@ -1,4 +1,5 @@
-﻿using LinhThongMinh.DTO.DTO;
+﻿using LinhThongMinh.DAL.DAL;
+using LinhThongMinh.DTO.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;

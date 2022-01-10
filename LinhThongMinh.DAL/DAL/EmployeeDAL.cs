@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LinhThongMinh.DTO.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
