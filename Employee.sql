@@ -1,6 +1,6 @@
 ﻿CREATE DATABASE HR
 
-CREATE TABLE Employee(
+CREATE TABLE Employee_2119110221(
 ID_Employee nvarchar(30), 
 Name nvarchar(255), 
 DateBirth nvarchar(255), 
@@ -11,25 +11,22 @@ ID_Department nvarchar(30)
 
 GO
 
-CREATE TABLE Department(
+CREATE TABLE Department_2119110221(
 ID_Department nvarchar(30),
 Name nvarchar(255)
 )
 
-INSERT INTO Employee VALUES ('C53418', 'Romelu Lukaku', '11/10/1993', 'true', 'Belgium', 'KT')
-INSERT INTO Employee VALUES ('X53416', 'Mason Mount', '10/01/1999', 'true', 'England', 'KD')
-INSERT INTO Employee VALUES ('M53417', 'Kai Havert', '11/6/1999', 'true', 'Germany', 'NS')
-INSERT INTO Employee VALUES ('LTM121', N'Linh thông minh', '12/6/2001', 'false', N'Việt Nam', 'KT')
+INSERT INTO Employee_2119110221 VALUES ('C53418', 'Romelu Lukaku', '11/10/1993', 'true', 'Belgium', 'KT')
+INSERT INTO Employee_2119110221 VALUES ('X53416', 'Mason Mount', '10/01/1999', 'true', 'England', 'KD')
+INSERT INTO Employee_2119110221 VALUES ('M53417', 'Kai Havert', '11/6/1999', 'true', 'Germany', 'NS')
+INSERT INTO Employee_2119110221 VALUES ('LTM121', N'Linh thông minh', '12/6/2001', 'false', N'Việt Nam', 'KT')
 
-INSERT INTO Department VALUES ('NS', 'HR')
-INSERT INTO Department VALUES ('KT', 'Accounting')
-INSERT INTO Department VALUES ('KD', 'Business')
+INSERT INTO Department_2119110221 VALUES ('NS', 'HR')
+INSERT INTO Department_2119110221 VALUES ('KT', 'Accounting')
+INSERT INTO Department_2119110221 VALUES ('KD', 'Business')
 
-SELECT *FROM Employee
-SELECT *FROM Department
+SELECT *FROM Employee_2119110221
+SELECT *FROM Department_2119110221
 
-DROP TABLE Employee
-DROP TABLE Department
-
-DELETE FROM Employee
-DELETE FROM Department
+DROP TABLE Employee_2119110221
+DROP TABLE Department_2119110221

@@ -14,7 +14,7 @@ namespace LinhThongMinh.DAL.DAL
         {
             SqlConnection conn = CreateConnection();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Employee", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Employee_2119110221", conn);
             SqlDataReader reader = cmd.ExecuteReader();
 
             List<EmployeeDTO> employees = new List<EmployeeDTO>();
@@ -39,7 +39,7 @@ namespace LinhThongMinh.DAL.DAL
             SqlConnection conn = CreateConnection();
             try
             {
-                SqlCommand cmd = new SqlCommand("UPDATE Employee SET Name = @Name, DateBirth = @DateBirth, Gender = @Gender, PlaceBirth = @PlaceBirth, ID_Department = @ID_Department where ID_Employee = @ID_Employee", conn);
+                SqlCommand cmd = new SqlCommand("UPDATE Employee_2119110221 SET Name = @Name, DateBirth = @DateBirth, Gender = @Gender, PlaceBirth = @PlaceBirth, ID_Department = @ID_Department where ID_Employee = @ID_Employee", conn);
                 cmd.Parameters.Add(new SqlParameter("@ID_Employee", employee.ID_Employee));
                 cmd.Parameters.Add(new SqlParameter("@Name", employee.Name));
                 cmd.Parameters.Add(new SqlParameter("@DateBirth", employee.DateBirth));
@@ -66,7 +66,7 @@ namespace LinhThongMinh.DAL.DAL
             SqlConnection conn = CreateConnection();
             try
             {
-                SqlCommand cmd = new SqlCommand("DELETE FROM Employee WHERE ID_Employee = @ID_Employee", conn);
+                SqlCommand cmd = new SqlCommand("DELETE FROM Employee_2119110221 WHERE ID_Employee = @ID_Employee", conn);
                 cmd.Parameters.Add(new SqlParameter("@ID_Employee", employee.ID_Employee));
 
                 conn.Open();
@@ -89,7 +89,7 @@ namespace LinhThongMinh.DAL.DAL
             SqlConnection conn = CreateConnection();
             try
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO Employee (ID_Employee, Name, DateBirth, Gender, PlaceBirth, ID_Department) " +
+                SqlCommand cmd = new SqlCommand("INSERT INTO Employee_2119110221 (ID_Employee, Name, DateBirth, Gender, PlaceBirth, ID_Department) " +
                     "VALUES(@ID_Employee, @Name, @DateBirth, @Gender, @PlaceBirth, @ID_Department)", conn);
                 cmd.Parameters.Add(new SqlParameter("@ID_Employee", employee.ID_Employee));
                 cmd.Parameters.Add(new SqlParameter("@Name", employee.Name));

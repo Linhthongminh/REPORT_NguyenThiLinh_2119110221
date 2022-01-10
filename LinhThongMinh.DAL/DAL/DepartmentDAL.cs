@@ -14,7 +14,7 @@ namespace LinhThongMinh.DAL.DAL
         {
             SqlConnection conn = CreateConnection();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Department", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Department_2119110221", conn);
             SqlDataReader reader = cmd.ExecuteReader();
 
             List<DepartmentDTO> departments = new List<DepartmentDTO>();
@@ -33,7 +33,7 @@ namespace LinhThongMinh.DAL.DAL
         {
             SqlConnection conn = CreateConnection();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Department WHERE ID_Department = @id", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Department_2119110221 WHERE ID_Department = @id", conn);
             cmd.Parameters.AddWithValue("@id", id);
             SqlDataReader reader = cmd.ExecuteReader();
             DepartmentDTO department = new DepartmentDTO();
