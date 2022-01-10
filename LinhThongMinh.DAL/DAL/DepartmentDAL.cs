@@ -21,8 +21,8 @@ namespace LinhThongMinh.DAL.DAL
             while (reader.Read())
             {
                 DepartmentDTO department = new DepartmentDTO();
-                department.Department_ID = reader["Department_ID"].ToString();
-                department.Department_Name = reader["Department_Name"].ToString();
+                department.ID_Department = reader["ID_Department"].ToString();
+                department.Name = reader["Name"].ToString();
                 departments.Add(department);
             }
             conn.Close();
@@ -33,14 +33,14 @@ namespace LinhThongMinh.DAL.DAL
         {
             SqlConnection conn = CreateConnection();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Department WHERE Department_ID = @id", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Department WHERE ID_Department = @id", conn);
             cmd.Parameters.AddWithValue("@id", id);
             SqlDataReader reader = cmd.ExecuteReader();
             DepartmentDTO department = new DepartmentDTO();
             if (reader.HasRows && reader.Read())
             {
-                department.Department_ID = reader["Department_ID"].ToString();
-                department.Department_Name = reader["Department_Name"].ToString();
+                department.ID_Department = reader["ID_Department"].ToString();
+                department.Name = reader["Name"].ToString();
             }
             conn.Close();
             return department;

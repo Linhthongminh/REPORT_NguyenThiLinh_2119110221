@@ -22,12 +22,12 @@ namespace LinhThongMinh.DAL.DAL
             while (reader.Read())
             {
                 EmployeeDTO employee = new EmployeeDTO();
-                employee.Employee_ID = reader["Employee_ID"].ToString();
-                employee.Employee_Name = reader["Employee_Name"].ToString();
-                employee.DOB = reader["DOB"].ToString();
+                employee.ID_Employee = reader["ID_Employee"].ToString();
+                employee.Name = reader["Name"].ToString();
+                employee.DateBirth = reader["DateBirth"].ToString();
                 employee.Gender = (bool)reader["Gender"];
-                employee.POB = reader["POB"].ToString();
-                employee.Department = departmentDAL.ReadDepartment(reader["Department_ID"].ToString());
+                employee.PlaceBirth = reader["PlaceBirth"].ToString();
+                employee.ID_Department = departmentDAL.ReadDepartment(reader["ID_Department"].ToString());
                 employees.Add(employee);
             }
             conn.Close();
@@ -39,13 +39,13 @@ namespace LinhThongMinh.DAL.DAL
             SqlConnection conn = CreateConnection();
             try
             {
-                SqlCommand cmd = new SqlCommand("UPDATE Employee SET Employee_Name = @Employee_Name, DOB = @DOB, Gender = @Gender, POB = @POB, Department = @Department where Employee_ID = @Employee_ID", conn);
-                cmd.Parameters.Add(new SqlParameter("@Employee_ID", employee.Employee_ID));
-                cmd.Parameters.Add(new SqlParameter("@Employee_Name", employee.Employee_Name));
-                cmd.Parameters.Add(new SqlParameter("@DOB", employee.DOB));
+                SqlCommand cmd = new SqlCommand("UPDATE Employee SET Name = @Name, DateBirth = @DateBirth, Gender = @Gender, PlaceBirth = @PlaceBirth, ID_Department = @ID_Department where ID_Employee = @ID_Employee", conn);
+                cmd.Parameters.Add(new SqlParameter("@ID_Employee", employee.ID_Employee));
+                cmd.Parameters.Add(new SqlParameter("@Name", employee.Name));
+                cmd.Parameters.Add(new SqlParameter("@DateBirth", employee.DateBirth));
                 cmd.Parameters.Add(new SqlParameter("@Gender", employee.Gender));
-                cmd.Parameters.Add(new SqlParameter("@POB", employee.POB));
-                cmd.Parameters.Add(new SqlParameter("@Department", employee.Department.Department_ID));
+                cmd.Parameters.Add(new SqlParameter("@PlaceBirth", employee.PlaceBirth));
+                cmd.Parameters.Add(new SqlParameter("@ID_Department", employee.ID_Department.ID_Department));
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
@@ -66,8 +66,8 @@ namespace LinhThongMinh.DAL.DAL
             SqlConnection conn = CreateConnection();
             try
             {
-                SqlCommand cmd = new SqlCommand("DELETE FROM Employee WHERE Employee_ID = @Employee_ID", conn);
-                cmd.Parameters.Add(new SqlParameter("@Employee_ID", employee.Employee_ID));
+                SqlCommand cmd = new SqlCommand("DELETE FROM Employee WHERE ID_Employee = @ID_Employee", conn);
+                cmd.Parameters.Add(new SqlParameter("@ID_Employee", employee.ID_Employee));
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -89,14 +89,14 @@ namespace LinhThongMinh.DAL.DAL
             SqlConnection conn = CreateConnection();
             try
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO Employee (Employee_ID, Employee_Name, DOB, Gender, POB, Department) " +
-                    "VALUES(@Employee_ID, @Employee_Name, @DOB, @Gender, @POB, @Department)", conn);
-                cmd.Parameters.Add(new SqlParameter("@Employee_ID", employee.Employee_ID));
-                cmd.Parameters.Add(new SqlParameter("@Employee_Name", employee.Employee_Name));
-                cmd.Parameters.Add(new SqlParameter("@DOB", employee.DOB));
+                SqlCommand cmd = new SqlCommand("INSERT INTO Employee (ID_Employee, Name, DateBirth, Gender, PlaceBirth, ID_Department) " +
+                    "VALUES(@ID_Employee, @Name, @DateBirth, @Gender, @PlaceBirth, @ID_Department)", conn);
+                cmd.Parameters.Add(new SqlParameter("@ID_Employee", employee.ID_Employee));
+                cmd.Parameters.Add(new SqlParameter("@Name", employee.Name));
+                cmd.Parameters.Add(new SqlParameter("@DateBirth", employee.DateBirth));
                 cmd.Parameters.Add(new SqlParameter("@Gender", employee.Gender));
-                cmd.Parameters.Add(new SqlParameter("@POB", employee.POB));
-                cmd.Parameters.Add(new SqlParameter("@Department", employee.Department.Department_ID));
+                cmd.Parameters.Add(new SqlParameter("@PlaceBirth", employee.PlaceBirth));
+                cmd.Parameters.Add(new SqlParameter("@ID_Department", employee.ID_Department.ID_Department));
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
