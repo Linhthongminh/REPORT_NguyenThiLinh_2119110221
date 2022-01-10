@@ -26,14 +26,14 @@ namespace LinhThongMinh.GUI
             List<EmployeeDTO> employees = employeeBAL.ReadEmployee();
             foreach (EmployeeDTO employee in employees)
             {
-                dgvEmployee.Rows.Add(employee.Employee_ID, employee.Employee_Name, employee.DOB, employee.Gender, employee.POB, employee.Department_Name);
+                dgvEmployee.Rows.Add(employee.ID_Employee, employee.Name, employee.DateBirth, employee.Gender, employee.PlaceBirth, employee.Name_Department);
             }
             List<DepartmentDTO> departments = departmentBAL.ReadDepartmentList();
             foreach (DepartmentDTO department in departments)
             {
                 cbMajor.Items.Add(department);
             }
-            cbMajor.DisplayMember = "Employee_Name";
+            cbMajor.DisplayMember = "Name";
         }
 
         private void dgvEmployee_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -60,23 +60,23 @@ namespace LinhThongMinh.GUI
             else
             {
                 EmployeeDTO employee = new EmployeeDTO();
-                employee.Employee_ID = tbId.Text;
-                employee.Employee_Name = tbName.Text;
-                employee.DOB = tbDB.Text;
+                employee.ID_Employee = tbId.Text;
+                employee.Name = tbName.Text;
+                employee.DateBirth = tbDB.Text;
                 employee.Gender = cbGender.Checked;
-                employee.POB = tbPB.Text;
-                employee.Department = (DepartmentDTO)cbMajor.SelectedItem;
+                employee.PlaceBirth = tbPB.Text;
+                employee.ID_Department = (DepartmentDTO)cbMajor.SelectedItem;
                 employeeBAL.NewEmployee(employee);
 
-                dgvEmployee.Rows.Add(employee.Employee_ID, employee.Employee_Name, employee.DOB, employee.Gender, employee.POB, employee.Department.Department_Name);
+                dgvEmployee.Rows.Add(employee.ID_Employee, employee.Name, employee.DateBirth, employee.Gender, employee.PlaceBirth, employee.ID_Department.Name);
             }
         }
 
         private void btDelete_Click(object sender, EventArgs e)
         {
             EmployeeDTO employee = new EmployeeDTO();
-            employee.Employee_ID = tbId.Text;
-            employee.Employee_Name = tbName.Text;
+            employee.ID_Employee = tbId.Text;
+            employee.Name = tbName.Text;
 
             employeeBAL.DeleteEmployee(employee);
 
@@ -96,19 +96,19 @@ namespace LinhThongMinh.GUI
                 if (row != null)
                 {
                     EmployeeDTO employee = new EmployeeDTO();
-                    employee.Employee_ID = tbId.Text;
-                    employee.Employee_Name = tbName.Text;
-                    employee.DOB = tbDB.Text;
+                    employee.ID_Employee = tbId.Text;
+                    employee.Name = tbName.Text;
+                    employee.DateBirth = tbDB.Text;
                     employee.Gender = cbGender.Checked;
-                    employee.POB = tbPB.Text;
-                    employee.Department = (DepartmentDTO)cbMajor.SelectedItem;
+                    employee.PlaceBirth = tbPB.Text;
+                    employee.ID_Department = (DepartmentDTO)cbMajor.SelectedItem;
 
-                    row.Cells[0].Value = employee.Employee_ID;
-                    row.Cells[1].Value = employee.Employee_Name;
-                    row.Cells[2].Value = employee.DOB;
+                    row.Cells[0].Value = employee.ID_Employee;
+                    row.Cells[1].Value = employee.Name;
+                    row.Cells[2].Value = employee.DateBirth;
                     row.Cells[3].Value = employee.Gender;
-                    row.Cells[4].Value = employee.POB;
-                    row.Cells[5].Value = employee.Department_Name;
+                    row.Cells[4].Value = employee.PlaceBirth;
+                    row.Cells[5].Value = employee.Name_Department;
                 }
             }
         }
