@@ -8,5 +8,6 @@ namespace LinhThongMinh.DTO.DTO
 {
     class EmployeeDTO
     {
+        //a
     }
 }
